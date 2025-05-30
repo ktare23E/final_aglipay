@@ -1,12 +1,16 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar.vue";
 </script>
 
 <template>
+    
     <Head title="Members" />
 
     <AuthenticatedLayout>
+    
         <template #header>
             <h2
                 class="text-xl font-semibold leading-tight text-gray-800"
@@ -27,5 +31,7 @@ import { Head } from '@inertiajs/vue3';
                 </div>
             </div>
         </div>
+        
     </AuthenticatedLayout>
 </template>
+

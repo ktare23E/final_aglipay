@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,9 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/testing',function(){
+
+})->name('testing');
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard', function () {
@@ -23,6 +27,15 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('members',function(){
         return Inertia::render('Members');
     })->name('members');
+
+    Route::get('/documents',function(){
+        $users = User::all();
+        return Inertia::render('Documents',[
+            'users' => $users
+        ]);
+    })->name('documents');
+    
+    
 });
 
 
