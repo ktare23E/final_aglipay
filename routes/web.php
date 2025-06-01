@@ -25,17 +25,22 @@ Route::middleware(['auth','verified'])->group(function(){
     })->name('dashboard');
 
     Route::get('members',function(){
-        return Inertia::render('Members');
+        $users = User::all();
+
+        return Inertia::render('Members',[
+            'users' => $users
+        ]);
     })->name('members');
 
     Route::get('/documents',function(){
-        $users = User::all();
-        return Inertia::render('Documents',[
-            'users' => $users
-        ]);
+        return Inertia::render('Documents');
     })->name('documents');
     
-    
+    Route::get('/view_member/{user}',function(User $user){
+        return Inertia::render('ViewMember',[
+            'user' => $user
+        ]);
+    })->name('view_member');
 });
 
 

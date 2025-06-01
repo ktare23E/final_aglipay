@@ -15,4 +15,12 @@ class Documents extends Model
         'ocr_text',
         'save_date'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function documentType(){
+        return $this->belongsTo(DocumentType::class);
+    }
 }
