@@ -1,11 +1,16 @@
 <!-- resources/js/Pages/ViewMember.vue -->
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
 
 const props = defineProps({
-    user: Object
+    user: Object,
+    documents : Object
 });
+
+const back = () => {
+    router.get(route('members'));
+}
 </script>
 
 <template>
@@ -13,9 +18,13 @@ const props = defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">View Member</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">{{user.first_name}} {{user.last_name}} Documents</h2>
         </template>
-
+        <div>
+            <button @click="back" class="py-1 px-2 text-white bg-blue-500 ">Go Back</button>
+            <p v-if="documents.length > 0">{{documents}}</p>
+            <p v-else class="text-center text-2xl">No documents yet.</p>
+        </div>
         <div class="py-12">
             <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
                 <div class="bg-white shadow sm:rounded-lg p-6">

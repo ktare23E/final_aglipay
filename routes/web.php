@@ -38,7 +38,8 @@ Route::middleware(['auth','verified'])->group(function(){
     
     Route::get('/view_member/{user}',function(User $user){
         return Inertia::render('ViewMember',[
-            'user' => $user
+            'user' => $user,
+            'documents' => $user->documents
         ]);
     })->name('view_member');
 });
