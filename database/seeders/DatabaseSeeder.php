@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\DocumentType;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'user_type' => 'admin'
         ]);
+
     }
 }

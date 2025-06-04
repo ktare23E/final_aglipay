@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('document_types', function (Blueprint $table) {
             $table->id();
-            $table->string('document_type');
+            $table->enum('document_type',['wedding_certificate','birth_certificate','death_certificate','marriage_certificate','divorce_certificate']);
             $table->timestamps();
         });
     }

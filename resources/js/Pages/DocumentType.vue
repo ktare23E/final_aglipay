@@ -30,12 +30,12 @@ const documents = [
 </script>
 
 <template>
-    <Head title="Documents" />
+    <Head title="Document Type" />
 
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Documents
+                Document Type
             </h2>
         </template>
 

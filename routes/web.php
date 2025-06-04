@@ -35,6 +35,10 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/documents',function(){
         return Inertia::render('Documents');
     })->name('documents');
+
+    Route::get('/document_type',function(){
+        return Inertia::render('DocumentType');
+    })->name('document_type');
     
     Route::get('/view_member/{user}',function(User $user){
         return Inertia::render('ViewMember',[
