@@ -3,6 +3,7 @@ import DynamicTableVue from '@/Components/DynamicTable.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import { computed, h, onMounted } from 'vue';
+import CreateButton from '@/Components/CreateButton.vue';
 
 const columns = ['id', 'title', 'type', 'created_at', 'actions'];
 
@@ -34,9 +35,13 @@ const documents = [
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Document Type
-            </h2>
+            <div class="w-full flex items-center justify-between">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                    Document Type
+                </h2>
+                <CreateButton name="Create Document Type" :link="route('testing')"/>
+            </div>
+           
         </template>
 
         <div class="py-12">

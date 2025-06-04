@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DocumentTypeController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,7 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/testing',function(){
 
-})->name('testing');
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard', function () {
@@ -36,9 +35,11 @@ Route::middleware(['auth','verified'])->group(function(){
         return Inertia::render('Documents');
     })->name('documents');
 
-    Route::get('/document_type',function(){
-        return Inertia::render('DocumentType');
-    })->name('document_type');
+    Route::get('/document_type',[DocumentTypeController::class,'index'])->name('document_type');
+
+    Route::get('/testing',function(){
+        return Inertia::render('CreateDocumentType');
+    })->name('testing');
     
     Route::get('/view_member/{user}',function(User $user){
         return Inertia::render('ViewMember',[

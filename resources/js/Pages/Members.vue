@@ -4,6 +4,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import DynamicTable from '@/Components/DynamicTable.vue';
 import { computed, onMounted } from 'vue';
+import CreateButton from '@/Components/CreateButton.vue';
 
 const props = defineProps({
     users: Array
@@ -36,7 +37,7 @@ const rows = computed(() => {
     <AuthenticatedLayout>
         <template #header>
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">Members</h2>
-                <button class="py-1 px-2 bg-blue-600 text-white text-sm rounded-sm">Add Member</button>
+                <CreateButton name="Create Members"/>
         </template>
 
         <div class="py-12">
