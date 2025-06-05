@@ -8,7 +8,7 @@ use Inertia\Inertia;
 class DocumentsController extends Controller
 {
     public function index(){
-        return Inertia::render('Documents');
+        return Inertia::render('Documents/Documents');
 
     }
 }

@@ -33,12 +33,7 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/create_document_type',[DocumentTypeController::class,'create'])->name('create_document_type');
     Route::post('/store_document_type',[DocumentTypeController::class,'store'])->name('store_document_type');
     
-    Route::get('/view_member/{user}',function(User $user){
-        return Inertia::render('ViewMember',[
-            'user' => $user,
-            'documents' => $user->documents
-        ]);
-    })->name('view_member');
+    Route::get('/view_member/{user}',[MemberControllers::class,'viewMember'])->name('view_member');
 });
 
 
