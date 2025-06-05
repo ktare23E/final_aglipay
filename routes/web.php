@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentTypeController;
+use App\Http\Controllers\MemberControllers;
+use App\Http\Controllers\DocumentsController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,23 +25,13 @@ Route::middleware(['auth','verified'])->group(function(){
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('members',function(){
-        $users = User::all();
+    Route::get('members',[MemberControllers::class,'index'])->name('members');
 
-        return Inertia::render('Members',[
-            'users' => $users
-        ]);
-    })->name('members');
-
-    Route::get('/documents',function(){
-        return Inertia::render('Documents');
-    })->name('documents');
+    Route::get('/documents',[DocumentsController::class,'index'])->name('documents');
 
     Route::get('/document_type',[DocumentTypeController::class,'index'])->name('document_type');
-
-    Route::get('/testing',function(){
-        return Inertia::render('CreateDocumentType');
-    })->name('testing');
+    Route::get('/create_document_type',[DocumentTypeController::class,'create'])->name('create_document_type');
+    Route::post('/store_document_type',[DocumentTypeController::class,'store'])->name('store_document_type');
     
     Route::get('/view_member/{user}',function(User $user){
         return Inertia::render('ViewMember',[

@@ -1,18 +1,41 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { Head, useForm,router } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import SelectInput from '@/Components/SelectInput.vue';
+import { computed } from 'vue';
+
+const props = defineProps({
+    categories: {
+        type: Array,
+        default: () => ['wedding_certificate', 'birth_certificate', 'death_certificate', 'marriage_certificate', 'divorce_certificate', 'other'],
+    }
+});
+
+// Transform snake_case to Title Case and create options array
+const formattedOptions = computed(() => {
+    return props.categories.map(category => ({
+        value: category,
+        label: category
+            .split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ')
+    }));
+});
 
 const form = useForm({
-    name: '',
+    document_type: '',
 });
 
 const submit = () => {
-    form.post(route('document_type.store'), {
-        onFinish: () => form.reset(),
+    form.post(route('store_document_type'), {
+        // go to document type page
+        onSuccess : () => {
+            router.visit(route('document_type'));
+        }
     });
 };
 </script>
@@ -32,25 +55,27 @@ const submit = () => {
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6">
                         <form @submit.prevent="submit">
-                            <div>
-                                <InputLabel for="name" value="Document Type Name" />
+                            <div class="space-y-6">
+                                
 
-                                <TextInput
-                                    id="name"
-                                    type="text"
-                                    class="mt-1 block w-full"
-                                    v-model="form.name"
-                                    required
-                                    autofocus
-                                />
+                                <div>
+                                    <SelectInput
+                                        v-model="form.document_type"
+                                        :options="formattedOptions"
+                                        label="Document Type"
+                                        placeholder="Select a document type"
+                                        valueKey="value"
+                                        labelKey="label"
+                                        required
+                                    />
+                                    <InputError class="mt-2" :message="form.errors.type" />
+                                </div>
 
-                                <InputError class="mt-2" :message="form.errors.name" />
-                            </div>
-
-                            <div class="mt-6 flex justify-end">
-                                <PrimaryButton :disabled="form.processing">
-                                    Create Document Type
-                                </PrimaryButton>
+                                <div class="flex justify-end">
+                                    <PrimaryButton :disabled="form.processing">
+                                        Create Document Type
+                                    </PrimaryButton>
+                                </div>
                             </div>
                         </form>
                     </div>

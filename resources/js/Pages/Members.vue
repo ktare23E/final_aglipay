@@ -32,12 +32,13 @@ const rows = computed(() => {
 </script>
 
 <template>
+
     <Head title="Members" />
 
     <AuthenticatedLayout>
         <template #header>
-                <h2 class="text-xl font-semibold leading-tight text-gray-800">Members</h2>
-                <CreateButton name="Create Members"/>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Members</h2>
+            <CreateButton name="Create Members" />
         </template>
 
         <div class="py-12">
@@ -48,12 +49,12 @@ const rows = computed(() => {
                             <!-- Slot for Action column -->
                             <template #Action="{ row }">
                                 <Link :href="`/view_member/${row.id}`"
-                                      class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs mr-2">
-                                    View
+                                    class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs mr-2">
+                                View
                                 </Link>
                                 <Link :href="`/users/${row.id}/edit`"
-                                      class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs">
-                                    Edit
+                                    class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs">
+                                Edit
                                 </Link>
                             </template>
                         </DynamicTable>

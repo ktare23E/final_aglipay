@@ -5,7 +5,22 @@ import { Head, Link } from '@inertiajs/vue3';
 import { computed, h, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 
-const columns = ['id', 'title', 'type', 'created_at', 'actions'];
+const columns = ['id', 'document_type', 'created_at', 'actions'];
+
+const formatDocumentType = (type) => {
+    return type.split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
+};
 
 onMounted(() => {
     // Initialize DataTable once DOM is rendered
@@ -14,20 +29,12 @@ onMounted(() => {
     }, 0);
 });
 
-const documents = [
-    {
-        id: 1,
-        title: 'Sample Document 1',
-        type: 'PDF',
-        created_at: '2024-03-20',
-    },
-    {
-        id: 2,
-        title: 'Sample Document 2',
-        type: 'DOCX',
-        created_at: '2024-03-21',
-    },
-];
+defineProps({
+    document_types: {
+        type: Array,
+        required: true,
+    }
+});
 </script>
 
 <template>
@@ -39,9 +46,8 @@ const documents = [
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
                     Document Type
                 </h2>
-                <CreateButton name="Create Document Type" :link="route('testing')"/>
+                <CreateButton name="Create Document Type" :link="route('create_document_type')"/>
             </div>
-           
         </template>
 
         <div class="py-12">
@@ -50,7 +56,11 @@ const documents = [
                     <div class="p-6 text-gray-900">
                         <DynamicTableVue
                             :columns="columns"
-                            :rows="documents"
+                            :rows="document_types.map(type => ({
+                                ...type,
+                                document_type: formatDocumentType(type.document_type),
+                                created_at: formatDate(type.created_at)
+                            }))"
                         >
                             <template #actions="{ row }">
                                 <div class="flex space-x-2">
