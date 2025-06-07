@@ -52,7 +52,7 @@ const logout =  () => {
                     </div>
                     <div class="p-6 mt-[1000px]">
                         <p>The currrent time right now is {{time}}</p>
-                        <Link href="/learning" class="text-blue-500" preserve-scroll="git a">Reload </Link>
+                        <Link href="/learning" class="text-blue-500" preserve-scroll>Reload </Link>
                     </div>
                     <div class="p-6">
                         <!-- <Link href="logout" :data="{name : 'Kristian Tare'}" method="post" as="button">Logout</Link> -->

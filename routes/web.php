@@ -31,7 +31,8 @@ Route::middleware(['auth','verified'])->group(function(){
         return Inertia::render('Index',[
             'name' => 'Kristian Tare',
             'frameworks' => ['Laravel','Vue','Inertia'],
-            'time' => now()->toTimeString()
+            // human readable time
+            'time' => \Carbon\Carbon::now()->timezone('Asia/Manila')->format('F j, Y g:i A'),
         ]);
     })->name('learning');
 
