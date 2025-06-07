@@ -7,6 +7,8 @@ import { computed, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 import { usePage } from '@inertiajs/vue3';
 
+import LearnNavLink from '@/Components/LearnNavLink.vue';
+
 const props = defineProps({
     name: String,
     frameworks : Array,
@@ -47,11 +49,22 @@ const logout =  () => {
                         <p>Lord please help me clean myself</p>
                         <p>In this lesson we will going to learn</p>
                         <ul>
-                            <li v-for="framework in frameworks" :key="framework" v-text="framework"></li>
+                            <li v-for="framework in props.frameworks" :key="framework" v-text="framework"></li>
+                        </ul>
+                    </div>
+                    <div class="p-6">
+                        <h1>Navigate Links</h1>
+                        <ul>
+                            <li>
+                                <LearnNavLink :href="route('dashboard')" :active="$page.component === 'Dashboard'">Home</LearnNavLink>
+                            </li>
+                            <li>
+                                <LearnNavLink :href="route('learning')" :active="$page.component === 'Index'">Learning</LearnNavLink>
+                            </li>
                         </ul>
                     </div>
                     <div class="p-6 mt-[1000px]">
-                        <p>The currrent time right now is {{time}}</p>
+                        <p>The currrent time right now is {{ props.time }}</p>
                         <Link href="/learning" class="text-blue-500" preserve-scroll>Reload </Link>
                     </div>
                     <div class="p-6">
