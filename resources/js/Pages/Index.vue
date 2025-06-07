@@ -1,16 +1,30 @@
 <!-- resources/js/Pages/Members.vue -->
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 import DynamicTable from '@/Components/DynamicTable.vue';
 import { computed, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
+import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps({
     name: String,
     frameworks : Array
 });
 
+
+
+const logout =  () => {
+    router.post('logout',{}, {
+        onSuccess : () => {
+            alert('User Log out sucessfully')
+        },
+        onError : (error) => {
+            console.log('Log out failed',error);
+            
+        }
+    });
+}
 
 </script>
 
@@ -35,6 +49,11 @@ const props = defineProps({
                             <li v-for="framework in frameworks" :key="framework" v-text="framework"></li>
                         </ul>
                     </div>
+                    <div class="p-6">
+                        <!-- <Link href="logout" :data="{name : 'Kristian Tare'}" method="post" as="button">Logout</Link> -->
+                        <button @click="logout">Logout</button>
+                    </div>
+
                 </div>
             </div>
         </div>

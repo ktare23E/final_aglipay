@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberControllers;
 use App\Http\Controllers\DocumentsController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,12 +27,16 @@ Route::middleware(['auth','verified'])->group(function(){
     })->name('dashboard');
 
     Route::get('learning',function(){
-        sleep(2);
+        // sleep(2);
         return Inertia::render('Index',[
             'name' => 'Kristian Tare',
             'frameworks' => ['Laravel','Vue','Inertia']
         ]);
     })->name('learning');
+
+    Route::post('testing_logout',function(){
+        dd(request()->all());
+    })->name('testing_logout');
 
     Route::get('members',[MemberControllers::class,'index'])->name('members');
 
