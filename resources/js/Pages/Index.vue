@@ -16,11 +16,11 @@ const props = defineProps({
 
 <template>
 
-    <Head title="Members" />
+    <Head title="Learn Laravel Vue Inertia" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">Members</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Learn Laravel Vue Inertia</h2>
             <CreateButton name="Create Members" />
         </template>
 
@@ -33,7 +33,6 @@ const props = defineProps({
                         <p>In this lesson we will going to learn</p>
                         <ul>
                             <li v-for="framework in frameworks" :key="framework" v-text="framework"></li>
-
                         </ul>
                     </div>
                 </div>
