@@ -9,7 +9,8 @@ import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps({
     name: String,
-    frameworks : Array
+    frameworks : Array,
+    time : String
 });
 
 
@@ -48,6 +49,10 @@ const logout =  () => {
                         <ul>
                             <li v-for="framework in frameworks" :key="framework" v-text="framework"></li>
                         </ul>
+                    </div>
+                    <div class="p-6 mt-[1000px]">
+                        <p>The currrent time right now is {{time}}</p>
+                        <Link href="/learning" class="text-blue-500" preserve-scroll="git a">Reload </Link>
                     </div>
                     <div class="p-6">
                         <!-- <Link href="logout" :data="{name : 'Kristian Tare'}" method="post" as="button">Logout</Link> -->

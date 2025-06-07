@@ -30,7 +30,8 @@ Route::middleware(['auth','verified'])->group(function(){
         // sleep(2);
         return Inertia::render('Index',[
             'name' => 'Kristian Tare',
-            'frameworks' => ['Laravel','Vue','Inertia']
+            'frameworks' => ['Laravel','Vue','Inertia'],
+            'time' => now()->toTimeString()
         ]);
     })->name('learning');
 
