@@ -26,6 +26,7 @@ Route::middleware(['auth','verified'])->group(function(){
     })->name('dashboard');
 
     Route::get('learning',function(){
+        sleep(2);
         return Inertia::render('Index',[
             'name' => 'Kristian Tare',
             'frameworks' => ['Laravel','Vue','Inertia']

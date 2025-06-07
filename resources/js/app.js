@@ -6,7 +6,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Aglipay';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -23,5 +23,6 @@ createInertiaApp({
     },
     progress: {
         color: '#4B5563',
+        showSpinner: true
     },
 });
