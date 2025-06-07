@@ -25,6 +25,13 @@ Route::middleware(['auth','verified'])->group(function(){
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    Route::get('learning',function(){
+        return Inertia::render('Index',[
+            'name' => 'Kristian Tare',
+            'frameworks' => ['Laravel','Vue','Inertia']
+        ]);
+    })->name('learning');
+
     Route::get('members',[MemberControllers::class,'index'])->name('members');
 
     Route::get('/documents',[DocumentsController::class,'index'])->name('documents');
