@@ -1,5 +1,5 @@
 <template>
-        <Link class="text-blue-500 hover:underline" :class="{'font-bold underline' : active}">
+        <Link :href="href" class="text-blue-500 hover:underline" :class="{'font-bold underline' : active}">
             <slot></slot>
         </Link>
 </template>
@@ -9,5 +9,6 @@
 
     defineProps({
         active : Boolean,
+        href : String
     })
 </script>

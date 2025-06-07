@@ -56,7 +56,7 @@ const logout =  () => {
                         <h1>Navigate Links Active Links Lesson</h1>
                         <ul>
                             <li>
-                                <LearnNavLink href="/dashboard" :active="$page.component === 'Dashboard'">Home</LearnNavLink>
+                                <LearnNavLink :href="'/dashboard'" :active="$page.component === 'Dashboard'">Home</LearnNavLink>
                             </li>
                             <li>
                                 <LearnNavLink href="/learning" :active="$page.component === 'Index'">Learning</LearnNavLink>
