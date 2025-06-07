@@ -53,13 +53,13 @@ const logout =  () => {
                         </ul>
                     </div>
                     <div class="p-6">
-                        <h1>Navigate Links</h1>
+                        <h1>Navigate Links Active Links Lesson</h1>
                         <ul>
                             <li>
-                                <LearnNavLink :href="route('dashboard')" :active="$page.component === 'Dashboard'">Home</LearnNavLink>
+                                <LearnNavLink href="/dashboard" :active="$page.component === 'Dashboard'">Home</LearnNavLink>
                             </li>
                             <li>
-                                <LearnNavLink :href="route('learning')" :active="$page.component === 'Index'">Learning</LearnNavLink>
+                                <LearnNavLink href="/learning" :active="$page.component === 'Index'">Learning</LearnNavLink>
                             </li>
                         </ul>
                     </div>
