@@ -10,12 +10,9 @@ import { usePage } from '@inertiajs/vue3';
 import LearnNavLink from '@/Components/LearnNavLink.vue';
 
 const props = defineProps({
-    name: String,
     frameworks : Array,
     time : String
 });
-
-
 
 const logout =  () => {
     router.post('logout',{}, {
@@ -45,7 +42,7 @@ const logout =  () => {
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6">
-                        <h1>Hello, {{props.name}}</h1>
+                        <h1>Hello, {{ $page.props.auth.full_name }}</h1>
                         <p>Lord please help me clean myself</p>
                         <p>In this lesson we will going to learn</p>
                         <ul>

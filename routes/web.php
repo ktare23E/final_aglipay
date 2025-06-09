@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -28,8 +29,8 @@ Route::middleware(['auth','verified'])->group(function(){
 
     Route::get('learning',function(){
         // sleep(2);
+        $user = Auth::user();
         return Inertia::render('Index',[
-            'name' => 'Kristian Tare',
             'frameworks' => ['Laravel','Vue','Inertia'],
             // human readable time
             'time' => \Carbon\Carbon::now()->timezone('Asia/Manila')->format('F j, Y g:i A'),

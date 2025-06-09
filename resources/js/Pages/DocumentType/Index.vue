@@ -44,7 +44,7 @@ defineProps({
         <template #header>
             <div class="w-full flex items-center justify-between">
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                    Document Type
+                    Document Type {{ $page.props.auth.full_name }}
                 </h2>
                 <CreateButton name="Create Document Type" :link="route('create_document_type')"/>
             </div>
