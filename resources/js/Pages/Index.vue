@@ -3,16 +3,16 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import DynamicTable from '@/Components/DynamicTable.vue';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 import { usePage } from '@inertiajs/vue3';
-
 import LearnNavLink from '@/Components/LearnNavLink.vue';
 
 const props = defineProps({
     frameworks : Array,
     time : String
 });
+
 
 const logout =  () => {
     router.post('logout',{}, {
@@ -26,15 +26,17 @@ const logout =  () => {
     });
 }
 
+
+
 </script>
 
 <template>
 
     <Head title="Learn Laravel Vue Inertia" />
-
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">Learn Laravel Vue Inertia</h2>
+
             <CreateButton name="Create Members" />
         </template>
 
