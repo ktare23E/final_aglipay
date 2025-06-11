@@ -27,6 +27,12 @@ Route::middleware(['auth','verified'])->group(function(){
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+
+
+    Route::get('/testing',function(){
+        return Inertia::render('Testing');
+    })->name('testing');
+
     Route::get('learning',function(){
         // sleep(2);
         $user = Auth::user();
