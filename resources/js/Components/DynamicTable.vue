@@ -4,7 +4,7 @@
     <thead class="bg-gray-200">
       <tr>
         <th v-for="(column, index) in columns" :key="index" class="px-4 py-2 border">
-          {{ column }}
+          {{ column.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}
         </th>
       </tr>
     </thead>

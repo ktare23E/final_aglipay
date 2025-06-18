@@ -13,6 +13,8 @@ class DocumentTypeController extends Controller
     public function index(){
         $document_types = DocumentType::all();
 
+        // return $document_types;
+
         return Inertia::render('DocumentType/Index',[
             'document_types' => $document_types
         ]);

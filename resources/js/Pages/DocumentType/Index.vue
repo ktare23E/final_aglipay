@@ -5,7 +5,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { computed, h, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 
-const columns = ['id', 'document_type', 'created_at', 'actions'];
+const columns = ['id', 'document_type', 'created_at', 'Actions'];
 
 const formatDocumentType = (type) => {
     return type.split('_')
@@ -35,6 +35,7 @@ defineProps({
         required: true,
     }
 });
+
 </script>
 
 <template>
@@ -62,7 +63,7 @@ defineProps({
                                 created_at: formatDate(type.created_at)
                             }))"
                         >
-                            <template #actions="{ row }">
+                            <template #Actions="{ row }">
                                 <div class="flex space-x-2">
                                     <button class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
                                         View
