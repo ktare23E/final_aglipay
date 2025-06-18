@@ -31,8 +31,7 @@ const logout =  () => {
 </script>
 
 <template>
-
-    <Head title="Learn Laravel Vue Inertia" />
+    <Head title="Testing"/>
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">Learn Laravel Vue Inertia</h2>
