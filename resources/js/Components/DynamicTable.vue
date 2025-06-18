@@ -4,7 +4,7 @@
     <thead class="bg-gray-200">
       <tr>
         <th v-for="(column, index) in columns" :key="index" class="px-4 py-2 border">
-          {{ column.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}
+          {{ correctColumn(column) }}
         </th>
       </tr>
     </thead>
@@ -20,10 +20,8 @@
   </table>
 </template>
 
-<script>
-export default {
-  name: "DynamicTable",
-  props: {
+<script setup>
+  defineProps({
     columns: {
       type: Array,
       required: true
@@ -32,6 +30,10 @@ export default {
       type: Array,
       required: true
     }
+  })
+
+
+  const correctColumn = (column) => {
+    return column.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
-};
 </script>
