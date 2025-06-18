@@ -35,5 +35,19 @@ const back = () => {
                 </div>
             </div>
         </div>
+        <div class="py-12">
+            <h1 class="text-center font-bold mb-2">{{user.first_name}} {{user.last_name}} Documents</h1>
+            <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
+                <div class="bg-white shadow sm:rounded-lg p-6 grid grid-cols-3 gap-4">
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+                    <div class="bg-gray-100 p-8 rounded-sm shadow-md transition-all hover:shadow-xl"></div>
+
+                </div>
+            </div>
+        </div>
     </AuthenticatedLayout>
 </template>
