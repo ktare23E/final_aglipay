@@ -26,10 +26,10 @@ class DocumentTypeController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
+        $validated = $request->validate([
             'document_type' => 'required|string|max:255',
         ]);
 
-        DocumentType::create($request->all());
+        DocumentType::create($validated);
     }
 }
