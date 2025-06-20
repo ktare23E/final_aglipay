@@ -24,6 +24,10 @@ Route::get('/testing',function(){
     return Inertia::render('Testing');
 })->name('testing');
 
+Route::get('/landing_page',function(){
+    return Inertia::render('Landing');
+});
+
 Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
