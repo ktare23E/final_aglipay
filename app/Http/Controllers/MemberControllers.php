@@ -29,4 +29,10 @@ class MemberControllers extends Controller
             'documents' => $user->documents
         ]);
     }
+
+    public function priestUser(){
+        $priests = User::where('user_type','priest')->get();
+
+        return $priests;
+    }
 }

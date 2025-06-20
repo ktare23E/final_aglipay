@@ -81,6 +81,16 @@ const showingNavigationDropdown = ref(false);
                                     Learning
                                 </NavLink>
                             </div>
+                            <div
+                                class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
+                            >
+                                <NavLink
+                                    :href="route('priests')"
+                                    :active="route().current('priests')"
+                                >
+                                    Priest
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div class="hidden sm:ms-6 sm:flex sm:items-center">

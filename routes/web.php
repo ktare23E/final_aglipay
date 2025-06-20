@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentTypeController;
 use App\Http\Controllers\MemberControllers;
 use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\PriestController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Request;
@@ -11,18 +12,18 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('home');
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// })->name('home');
 
-Route::get('/testing',function(){
+Route::get('/',function(){
     return Inertia::render('Testing');
-})->name('testing');
+})->name('home');
 
 Route::get('/landing_page',function(){
     return Inertia::render('Landing');
@@ -43,9 +44,13 @@ Route::middleware(['auth','verified'])->group(function(){
         ]);
     })->name('learning');
 
-    Route::get('members',[MemberControllers::class,'index'])->name('members');
+    Route::get('/members',[MemberControllers::class,'index'])->name('members');
 
     Route::get('/documents',[DocumentsController::class,'index'])->name('documents');
+
+
+    Route::get('/priests',[PriestController::class,'index'])->name('priests');
+
 
     Route::get('/document_type',[DocumentTypeController::class,'index'])->name('document_type');
     Route::get('/create_document_type',[DocumentTypeController::class,'create'])->name('create_document_type');

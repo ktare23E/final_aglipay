@@ -1,4 +1,12 @@
+
+<script setup>
+import { Link } from '@inertiajs/vue3';
+
+
+</script>
+
 <template>
+    <Head title="Welcome"/>
     <div class="bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800">
 
         <!-- Animated cursor -->
@@ -18,7 +26,7 @@
                     <div class="animate-pulse">
                         <i class="fas fa-lightbulb text-3xl text-yellow-300"></i>
                     </div>
-                    <h1 class="text-4xl font-bold zoom-in">InnovateX</h1>
+                    <h1 class="text-4xl font-bold zoom-in">Aglipay Files</h1>
                 </div>
 
                 <nav class="hidden md:block zoom-in">
@@ -27,10 +35,6 @@
                         </li>
                         <li><a href="#about" class="hover:text-indigo-200 transition duration-300 font-medium">About</a>
                         </li>
-                        <li><a href="#services"
-                                class="hover:text-indigo-200 transition duration-300 font-medium">Services</a></li>
-                        <li><a href="#portfolio"
-                                class="hover:text-indigo-200 transition duration-300 font-medium">Portfolio</a></li>
                         <li>
                             <Link :href="route('login')"
                                 class="hover:text-indigo-200 transition duration-300 font-medium">Login</Link>
@@ -51,18 +55,17 @@
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/2 mb-10 md:mb-0" data-scroll="fadeIn">
                         <h2 class="text-5xl font-bold text-indigo-700 mb-6 leading-tight">
-                            Transforming Ideas Into <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">Digital
-                                Reality</span>
+                             Aglipay File Management <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">System</span>
                         </h2>
                         <p class="text-xl text-gray-600 mb-8">
                             We create innovative digital solutions that drive business growth and enhance user
                             experiences.
                         </p>
                         <div class="flex space-x-4">
-                            <button class="btn-primary">
+                            <Link href="login" class="btn-primary">
                                 Get Started <i class="fas fa-arrow-right ml-2"></i>
-                            </button>
+                            </Link>
                             <button
                                 class="border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-all duration-300">
                                 Learn More
@@ -488,10 +491,6 @@
     <h1 class="text-center font-bold">Hello World</h1>
 </template>
 
-<script setup>
-import { Link } from '@inertiajs/vue3';
-
-</script>
 
 <style>
 @tailwind base;

@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import CreateButton from '@/Components/CreateButton.vue';
 
 
 </script>
@@ -8,13 +9,14 @@ import { Head } from '@inertiajs/vue3';
 <template>
     <Head title="Dashboard" />
 
-    <AuthenticatedLayout>
+    <AuthenticatedLayout>        
         <template #header>
             <h2
                 class="text-xl font-semibold leading-tight text-gray-800"
             >
                 Dashboard
-            </h2>
+            </h2>            
+            <CreateButton name="Scan File" />
         </template>
 
 
