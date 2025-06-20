@@ -1,12 +1,11 @@
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
-
+import { Link,Head } from '@inertiajs/vue3';
 
 </script>
 
 <template>
-    <Head title="Welcome"/>
+    <Head title="Welcome"></Head>
     <div class="bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800">
 
         <!-- Animated cursor -->
