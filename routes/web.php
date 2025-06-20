@@ -20,18 +20,14 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-
+Route::get('/testing',function(){
+    return Inertia::render('Testing');
+})->name('testing');
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-
-
-
-    Route::get('/testing',function(){
-        return Inertia::render('Testing');
-    })->name('testing');
 
     Route::get('learning',function(){
         // sleep(2);
@@ -42,10 +38,6 @@ Route::middleware(['auth','verified'])->group(function(){
             'time' => \Carbon\Carbon::now()->timezone('Asia/Manila')->format('F j, Y g:i A'),
         ]);
     })->name('learning');
-
-    Route::post('testing_logout',function(){
-        dd(request()->all());
-    })->name('testing_logout');
 
     Route::get('members',[MemberControllers::class,'index'])->name('members');
 
