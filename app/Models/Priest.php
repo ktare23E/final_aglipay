@@ -14,5 +14,6 @@ class Priest extends Model
         'address',
         'position',
         'dob',
+        'status'
     ];
 }

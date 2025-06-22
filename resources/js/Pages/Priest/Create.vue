@@ -10,14 +10,24 @@ import { computed } from 'vue';
 
 
 
-
 const form = useForm({
     first_name: '',
     last_name : '',
     address : '',
     position : '',
-    dob : ''
+    dob : '',
+    status : ''
 });
+
+const status = ['active','inactive'];
+
+const options = computed(() => {
+    return status.map(data => ({
+        value : data,
+        label : data.charAt(0).toUpperCase() + data.slice(1)
+    }))
+})
+
 
 const submit = () => {
     form.post(route('store_priest'), {
@@ -106,7 +116,7 @@ const submit = () => {
 
                                         <InputError class="mt-2" :message="form.errors.position" />
                                     </div>
-                                    <div class="col-span-2">
+                                    <div>
                                         <InputLabel for="dob" value="Date of Birth" />
 
                                         <TextInput
@@ -120,6 +130,18 @@ const submit = () => {
                                         />
 
                                         <InputError class="mt-2" :message="form.errors.dob" />
+                                    </div>
+                                    <div>
+                                        <SelectInput
+                                            v-model="form.status"
+                                            :options="options"
+                                            label="Status"
+                                            placeholder="Select a status"
+                                            valueKey="value"
+                                            labelKey="label"
+                                            required
+                                        />
+                                        <InputError class="mt-2" :message="form.errors.status" />
                                     </div>
                                 </div>
                                 

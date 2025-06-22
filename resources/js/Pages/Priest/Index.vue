@@ -5,7 +5,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { computed, h, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 
-const columns = ['id', 'first_name', 'last_name', 'address','position','dob', 'Actions'];
+const columns = ['id', 'first_name', 'last_name', 'address','position','dob','status', 'Actions'];
 
 const formatDocumentType = (type) => {
     return type.split('_')

@@ -17,6 +17,7 @@ class PriestController extends Controller
             'address' => $priest->address,
             'position' => $priest->position,
             'dob' => $priest->dob,
+            'status' => $priest->status,
             'id' => $priest->id
         ]);
 
@@ -37,7 +38,8 @@ class PriestController extends Controller
             'last_name' => 'required',
             'address' => 'required',
             'position' => 'required',
-            'dob' => 'required'
+            'dob' => 'required',
+            'status' => 'required'
         ]);
 
         $priest = Priest::create($validated);

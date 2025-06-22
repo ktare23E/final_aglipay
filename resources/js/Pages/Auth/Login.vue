@@ -28,15 +28,10 @@ const submit = () => {
     });
 };
 </script>
-<style>
-.gradient-bg {
-    background: linear-gradient(-45deg, #6366f1, #8b5cf6, #ec4899, #f43f5e);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}</style>
+
 
 <template>
-    <GuestLayout :class="'gradient-bg'">
+    <GuestLayout :class="'bg-gradient-to-br from-blue-500 to-indigo-100 text-gray-800'">
         <Head title="Log in" />
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
