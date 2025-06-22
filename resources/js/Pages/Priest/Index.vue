@@ -47,7 +47,7 @@ defineProps({
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
                     Priest
                 </h2>
-                <CreateButton name="Create Priest" :link="route('create_document_type')"/>
+                <CreateButton name="Create Priest" :link="route('create_priest')"/>
             </div>
         </template>
 

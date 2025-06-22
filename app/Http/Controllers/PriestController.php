@@ -25,4 +25,21 @@ class PriestController extends Controller
             'priests' => $priests
         ]);
     }
+
+    public function create(){
+        return Inertia::render('Priest/Create');
+    }
+
+    public function store(Request $request){
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'position' => 'required',
+            'dob' => 'required'
+        ]);
+
+        $priest = Priest::create($validated);
+    }
+
 }

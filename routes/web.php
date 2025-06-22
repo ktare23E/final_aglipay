@@ -50,7 +50,8 @@ Route::middleware(['auth','verified'])->group(function(){
 
 
     Route::get('/priests',[PriestController::class,'index'])->name('priests');
-
+    Route::get('/create_priest',[PriestController::class,'create'])->name('create_priest');
+    Route::post('/store_priest',[PriestController::class,'store'])->name('store_priest');
 
     Route::get('/document_type',[DocumentTypeController::class,'index'])->name('document_type');
     Route::get('/create_document_type',[DocumentTypeController::class,'create'])->name('create_document_type');
