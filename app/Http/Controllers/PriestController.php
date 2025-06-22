@@ -14,12 +14,13 @@ class PriestController extends Controller
         $priests = Priest::all()->map(fn($priest) => [
             'first_name' => $priest->first_name,
             'last_name' => $priest->last_name,
-            'email' => $priest->email,
             'address' => $priest->address,
+            'position' => $priest->position,
             'dob' => $priest->dob,
             'id' => $priest->id
         ]);
 
+        // return $priests;
 
         return Inertia::render('Priest/Index',[
             'priests' => $priests

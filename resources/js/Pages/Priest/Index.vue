@@ -5,7 +5,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { computed, h, onMounted } from 'vue';
 import CreateButton from '@/Components/CreateButton.vue';
 
-const columns = ['id', 'first_name', 'last_name', 'address','position','date_of_birth', 'Actions'];
+const columns = ['id', 'first_name', 'last_name', 'address','position','dob', 'Actions'];
 
 const formatDocumentType = (type) => {
     return type.split('_')
@@ -57,10 +57,9 @@ defineProps({
                     <div class="p-6 text-gray-900">
                         <DynamicTableVue
                             :columns="columns"
-                            :rows="priests.map(type => ({
-                                ...type,
-                                document_type: formatDocumentType(type.document_type),
-                                created_at: formatDate(type.created_at)
+                            :rows="priests.map(priest => ({
+                                ...priest,
+                                dob: formatDate(priest.dob)
                             }))"
                         >
                             <template #Actions="{ row }">
