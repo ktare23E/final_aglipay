@@ -45,4 +45,8 @@ class PriestController extends Controller
         $priest = Priest::create($validated);
     }
 
+    public function edit(Priest $priest){
+        return Inertia::render('Priest/Edit');
+    }
+
 }
