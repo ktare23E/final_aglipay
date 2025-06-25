@@ -46,7 +46,23 @@ class PriestController extends Controller
     }
 
     public function edit(Priest $priest){
-        return Inertia::render('Priest/Edit');
+        return Inertia::render('Priest/Edit',[
+            'priest' => $priest
+        ]);
+    }
+
+    public function update(Request $request, Priest $priest){
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'position' => 'required',
+            'dob' => 'required',
+            'status' => 'required'
+        ]);
+
+        $priest->update($validated);
+        $priest->save();
     }
 
 }

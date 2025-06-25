@@ -64,11 +64,11 @@ defineProps({
                         >
                             <template #Actions="{ row }">
                                 <div class="flex space-x-2">
+                                    <Link :href="route('edit_priest',row.id)" class="px-3 py-1 text-sm text-white bg-orange-500 rounded hover:bg-red-600">
+                                        Edit
+                                    </Link>
                                     <button class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
                                         View
-                                    </button>
-                                    <button class="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600">
-                                        Delete
                                     </button>
                                 </div>
                             </template>
