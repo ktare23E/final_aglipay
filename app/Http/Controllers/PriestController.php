@@ -65,4 +65,10 @@ class PriestController extends Controller
         $priest->save();
     }
 
+    public function viewPriest(Priest $priest){
+        return Inertia::render('Priest/ViewPriest',[
+            'priest' => $priest
+        ]);
+    }
+
 }

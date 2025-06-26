@@ -54,6 +54,8 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::post('/store_priest',[PriestController::class,'store'])->name('store_priest');
     Route::get('/edit_priest/{priest}',[PriestController::class,'edit'])->name('edit_priest');
     Route::post('/update_prist/{priest}',[PriestController::class,'update'])->name('update_priest');
+    Route::get('/view_priest/{priest}',[PriestController::class,'viewPriest'])->name('view_priest');
+
 
     Route::get('/document_type',[DocumentTypeController::class,'index'])->name('document_type');
     Route::get('/create_document_type',[DocumentTypeController::class,'create'])->name('create_document_type');

@@ -67,9 +67,9 @@ defineProps({
                                     <Link :href="route('edit_priest',row.id)" class="px-3 py-1 text-sm text-white bg-orange-500 rounded hover:bg-red-600">
                                         Edit
                                     </Link>
-                                    <button class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
+                                    <Link :href="route('view_priest',row.id)" class="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
                                         View
-                                    </button>
+                                    </Link>
                                 </div>
                             </template>
                         </DynamicTableVue>
