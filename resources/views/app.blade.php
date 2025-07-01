@@ -15,6 +15,9 @@
   
         <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js"></script>
 
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
         <!-- Scripts -->
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
