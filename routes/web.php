@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentTypeController;
 use App\Http\Controllers\MemberControllers;
@@ -30,9 +31,7 @@ Route::get('/landing_page',function(){
 });
 
 Route::middleware(['auth','verified'])->group(function(){
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
     Route::get('learning',function(){
         // sleep(2);
