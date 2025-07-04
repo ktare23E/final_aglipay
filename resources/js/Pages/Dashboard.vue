@@ -1,12 +1,9 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import CreateButton from '@/Components/CreateButton.vue';
 import Modal from '@/Components/Modal.vue';
 import { ref } from 'vue';
-import TextInput from '@/Components/TextInput.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
+
 
 const showModal = ref(false);
 
@@ -53,8 +50,6 @@ function closeModal() {
                             <div>
                                 <button class="py-1 px-2 bg-blue-500 text-white rounded-sm text-sm ">Upload</button>
                             </div>
-
-
                         </div>
                     </Modal>
                 </div>
