@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Birth');
     });
 
+    Route::get('/baptismal',function(){
+        return Inertia::render('Baptism');
+    });
 
     Route::get('/priests',[PriestController::class,'index'])->name('priests');
     Route::get('/create_priest',[PriestController::class,'create'])->name('create_priest');
